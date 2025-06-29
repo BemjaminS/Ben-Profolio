@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ben Swissa - DevOps Portfolio</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
@@ -12,24 +12,29 @@
   <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
+    <a href="#tech">Tech</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
+    <label class="theme-toggle">
+      <input type="checkbox" id="modeToggle">
+      <span class="slider"></span>
+    </label>
   </nav>
 
   <header id="home">
     <h1>Hi, I'm Ben</h1>
     <p>DevOps Explorer | Sunset Seeker | Ocean Soul 🌊</p>
     <a href="#contact" class="btn">Get in Touch</a>
+
+    <div class="devops-gif">
+      <img src="https://tse1.mm.bing.net/th?id=OIP._7RPBpKn3-F6IRom7h6nzQHaD3&pid=Api" alt="DevOps Loop">
+    </div>
   </header>
 
-  <div class="vinyl">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Vinyl_record_simple_icon.svg" alt="Vinyl">
-  </div>
-
   <section id="about">
-  <h2>About Me</h2>
-  <p>I’m a tech-driven creative with a love for the sea, sunset vibes, 80s synthwave aesthetics, and dynamic systems. My journey started in car sales, but my passion for technology drove me to study Computer Science and complete a DevOps bootcamp at Sela Group. I blend my frontend and DevOps skills with artistic spirit and discipline gained from my IDF service. My mission? Delivering scalable, resilient, and elegant solutions with a personal touch. I specialize in Microsoft Azure and hold an official certification from AWS, combining cloud expertise with hands-on DevOps implementation.</p>
-</section>
+    <h2>About Me</h2>
+    <p>I’m a tech-driven creative with a love for the sea, sunrise vibes, and dynamic systems. My journey started in car sales, but my passion for technology drove me to study Computer Science and complete a DevOps bootcamp at Sela Group. I blend my frontend and DevOps skills with artistic spirit and discipline gained from my IDF service. My mission? Delivering scalable, resilient, and elegant solutions with a personal touch. I specialize in Microsoft Azure and hold an official certification from AWS, combining cloud expertise with hands-on DevOps implementation.</p>
+  </section>
 
   <section id="tech">
     <h2>Tech Stack</h2>
@@ -60,8 +65,8 @@
     </div>
     <div class="project">
       <h3>Weight Tracker App</h3>
-<p>A responsive React application enabling users to log daily weight and calculate calorie needs using the Harris–Benedict formula. Features interactive charts (ChartJS), styled components with Material UI, and an email notification system via EmailJS. Fully automated CI/CD pipeline with GitHub Actions and live deployment via <a href="https://github.com/BemjaminS/CI-CD" target="_blank" style="color: #00f0ff; text-decoration: underline;">this repository</a>.</p>
-</div>
+      <p>A responsive React application enabling users to log daily weight and calculate calorie needs using the Harris–Benedict formula. Features interactive charts (ChartJS), styled components with Material UI, and an email notification system via EmailJS. Fully automated CI/CD pipeline with GitHub Actions and live deployment via <a href="https://github.com/BemjaminS/CI-CD" target="_blank" style="color: #0088cc; text-decoration: underline;">this repository</a>.</p>
+    </div>
   </section>
 
   <section id="contact">
@@ -74,24 +79,44 @@
       <button type="submit" class="btn">Send Message</button>
     </form>
 
-    <div style="margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-      <a href="https://github.com/Bemjamins" target="_blank" class="btn" style="background-color: #1c1c1c; color: #fff;">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="width: 20px; vertical-align: middle; margin-right: 8px;"> GitHub
+    <div class="social-buttons">
+      <a href="https://github.com/Bemjamins" target="_blank" class="btn github">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"> GitHub
       </a>
-      <a href="https://linkedin.com/in/bemjamins" target="_blank" class="btn" style="background-color: #0077b5; color: #fff;">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width: 20px; vertical-align: middle; margin-right: 8px;"> LinkedIn
+      <a href="https://linkedin.com/in/bemjamins" target="_blank" class="btn linkedin">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"> LinkedIn
       </a>
-      <a href="https://wa.me/972547191542" target="_blank" class="btn" style="background-color: #25D366; color: #fff;">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style="width: 20px; vertical-align: middle; margin-right: 8px;"> WhatsApp
+      <a href="https://wa.me/972547191542" target="_blank" class="btn whatsapp">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"> WhatsApp
       </a>
-      <a href="Ben_Swissa_CV.pdf" download class="btn" style="background-color: #ffdd57; color: #000;">
-        <img src="https://cdn-icons-png.flaticon.com/512/109/109612.png" alt="Download" style="width: 20px; vertical-align: middle; margin-right: 8px;"> Download CV
+      <a href="Ben_Swissa_CV.pdf" download class="btn download">
+        <img src="https://cdn-icons-png.flaticon.com/512/109/109612.png" alt="Download"> Download CV
       </a>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Ben Swissa </p>
+    <p>&copy; 2025 Ben Swissa</p>
   </footer>
+
+  <script>
+    const now = new Date();
+    const hour = now.getHours();
+    const isDarkTime = hour >= 18 || hour < 6;
+    const root = document.documentElement;
+    const toggle = document.getElementById('modeToggle');
+
+    function applyTheme(mode) {
+      root.setAttribute('data-theme', mode);
+    }
+
+    if (document.documentElement.getAttribute('data-theme') === 'auto') {
+      applyTheme(isDarkTime ? 'dark' : 'light');
+    }
+
+    toggle.addEventListener('change', function () {
+      applyTheme(this.checked ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
